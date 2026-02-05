@@ -1,7 +1,8 @@
 import { Download, RefreshCw, FileText, Check } from 'lucide-react'
 
 export function ResultView({ filename, jobId, onReset, extractedText }) {
-    const downloadUrl = `http://localhost:8000/download/${jobId}`
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+    const downloadUrl = `${API_URL}/download/${jobId}`
 
     return (
         <div className="animate-in fade-in zoom-in duration-300 space-y-8">

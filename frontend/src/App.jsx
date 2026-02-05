@@ -4,6 +4,8 @@ import { ResultView } from './components/ResultView'
 import { Scan, FileText, CheckCircle2 } from 'lucide-react'
 import logo from './assets/TSM-Logo.png'
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
 function App() {
   const [file, setFile] = useState(null)
   const [jobId, setJobId] = useState(null)
@@ -19,7 +21,7 @@ function App() {
     formData.append('file', uploadedFile)
 
     try {
-      const response = await fetch('http://localhost:8000/upload', {
+      const response = await fetch(`${API_URL}/upload`, {
         method: 'POST',
         body: formData,
       })
