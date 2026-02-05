@@ -3,6 +3,7 @@ uvicorn
 python-multipart
 pymupdf
 python-docx
+opencv-python-headless
 easyocr
 pillow
 numpy
