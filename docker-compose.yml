@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/outputs:/app/outputs
+    environment:
+      - UPLOAD_DIR=uploads
+      - OUTPUT_DIR=outputs
+      - ALLOWED_ORIGINS=http://localhost:5173,http://localhost:80
+
+  frontend:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    command: npm run dev -- --host
+    # Note: For production, you would typically build the frontend 
+    # and serve it with Nginx or a static host, but this runs dev mode for simplicity.
