@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FileUpload } from './components/FileUpload'
 import { ResultView } from './components/ResultView'
 import { Scan, FileText, CheckCircle2 } from 'lucide-react'
-import logo from './assets/TSM-Logo.png'
+import { Header } from './components/Header'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
@@ -49,18 +49,18 @@ function App() {
 
   return (
     <div className="min-h-screen colorful-bg selection:bg-pink-500/30">
+      <Header />
       <div className="container mx-auto px-4 py-8 max-w-5xl">
-        {/* Hero Header */}
-        <header className="mb-12 text-center space-y-4">
+        {/* Main Content */}
+        <div className="text-center space-y-4 mb-12">
           <h1 className="text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 py-2">
             Smart OCR
           </h1>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto font-medium">
             Transform your static PDFs and images into editable Word documents with <span className="text-blue-600 font-bold">AI-powered</span> precision.
           </p>
-        </header>
+        </div>
 
-        {/* Main Content */}
         <main className="max-w-2xl mx-auto">
           {!jobId ? (
             <div className="space-y-8">
